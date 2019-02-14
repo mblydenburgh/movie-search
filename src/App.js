@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Styled from 'styled-components'
+import Nav from './components/Nav'
+import Jumbotron from './components/Jumbotron';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Main>
+        <Nav />
+        <Jumbotron title={"React(ion) Movies"} />
+      </Main>
     );
   }
 }
 
 export default App;
+
+const Main = Styled.div`
+  margin: 1.5rem;
+`
