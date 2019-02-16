@@ -4,15 +4,14 @@ import Styled from 'styled-components';
 import Nav from './components/Nav';
 import Jumbotron from './components/Jumbotron';
 import RecentMovieList from './components/RecentMovieList';
-import TMDB_SECRET from './keys';
-
+import API from './utils/api';
 class App extends Component {
   state = {
     "movies": [{"title":"test"},{"title":"test"},{"title":"test"}],
   }
 
   componentDidMount(){
-    console.log(TMDB_SECRET);
+    API.fetchMostRecent();
   }
 
   render() {
