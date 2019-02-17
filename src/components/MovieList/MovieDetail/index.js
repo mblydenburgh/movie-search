@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Overdrive from 'react-overdrive';
 import { MoviePoster } from '../Movie';
 import API from '../../../utils/api';
-import queryString from 'query-string';
 
 class MovieDetail extends Component{
     state = {
@@ -27,7 +26,9 @@ class MovieDetail extends Component{
         return (
             <MovieDiv backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
                 <MovieInfo>
-
+                    <Overdrive id={movie.id}>
+                        <MoviePoster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+                    </Overdrive>
                 </MovieInfo>
             </MovieDiv>
         )

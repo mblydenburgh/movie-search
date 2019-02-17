@@ -8,9 +8,9 @@ const Movie = ({movie}) => {
     return (
         <MovieCard>
             <Link to={`/${movie.id}`}>
-                {/* <Overdrive id={movie.id}> */}
+                <Overdrive id={movie.id}>
                     <MoviePoster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
-                {/* </Overdrive> */}
+                </Overdrive>
             </Link>
         </MovieCard>
     )
