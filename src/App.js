@@ -7,11 +7,13 @@ import RecentMovieList from './components/RecentMovieList';
 import API from './utils/api';
 class App extends Component {
   state = {
-    "movies": [{"title":"test"},{"title":"test"},{"title":"test"}],
+    "movies": [],
   }
 
-  componentDidMount(){
-    API.fetchMostRecent();
+  async componentDidMount(){
+    const recentMovies = await API.fetchMostRecent();
+    console.log(recentMovies);
+    this.setState({movies:recentMovies})
   }
 
   render() {

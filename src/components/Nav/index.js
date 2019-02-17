@@ -19,6 +19,7 @@ const NavDiv = Styled.nav`
     top: 0;
     box-shadow: 5px 5px 5px #000;
     padding: 30px 0px;
+    margin: 1rem;
 `
 
 const NavBrand = Styled.span`
