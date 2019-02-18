@@ -25,12 +25,31 @@ const API = {
         const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_SECRET}`;
         try{
             const response = await fetch(url,{
+                method:"GET",
                 headers:{
                     "Content-Type":"application/json",
                 }
             });
             const results = await response.json();
             console.log(results);
+            return results;
+        }
+        catch(error){
+            console.log(error);
+        }
+    },
+
+    async searchForMovie(query){
+        const encodedQuery = query.replace(' ','+');
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_SECRET}&query=${encodedQuery}`
+        try{
+            const response = await fetch(url,{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            });
+            const {results} = await response.json();
             return results;
         }
         catch(error){

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Styled from 'styled-components';
 import Nav from './components/Nav';
-import Jumbotron from './components/Jumbotron';
 import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieList/MovieDetail';
+import Search from './components/Search'
 import API from './utils/api';
-import queryString from 'query-string';
+
 class App extends Component {
   state = {
     "movies": [],
@@ -18,17 +18,17 @@ class App extends Component {
     this.setState({movies:recentMovies})
   }
 
+  //! Why does the search compoent not render when placed below the movie detail component?
   render() {
     return (
       <Main>
         <Nav />
-        <Jumbotron title={"React(ion) Movies"} subtitle={"Powered by The Movie Database"} />
         <Router>
           <div>
             <Switch>
-              <Route exact path='/' component={() => <MovieList movies={this.state.movies} />} />
+              <Route exact path='/' component={() => <MovieList movies={this.state.movies} landingPage={true} />} />
+              <Route exact path='/search' component={() => <Search />} />
               <Route exact path='/:id' component={() => <MovieDetail />} />
-              {/* <Route exact path='/search' component={} /> */}
               {/* <Route exact path='/saved' component={} /> */}
             </Switch>
           </div>

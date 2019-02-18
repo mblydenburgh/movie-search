@@ -1,8 +1,9 @@
 import React from 'react';
-import Styled from 'styled-components'
+import Styled from 'styled-components';
 import Movie from './Movie';
+import Jumbotron from '../Jumbotron';
 
-const MovieList = ({movies}) => {
+const MovieList = ({movies,landingPage}) => {
     
     const renderMovies = movies => movies.map(movie => ( 
             <Movie key={movie.id} movie={movie} />
@@ -10,9 +11,12 @@ const MovieList = ({movies}) => {
 
     
     return (
-        <List>
-            {renderMovies(movies)} 
-        </List>
+        <div>
+            {landingPage?<Jumbotron title={"React(ion) Movies"} subtitle={"Powered by The Movie Database"} />:null} 
+            <List>
+                {renderMovies(movies)} 
+            </List>
+        </div>
     )
 }
 

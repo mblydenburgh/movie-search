@@ -16,7 +16,7 @@ const JumboDiv = Styled.div`
     text-align: center;
     min-height: 300px;
     padding: 1.25rem;
-    border: 1px solid black;
+    box-shadow: 5px 5px 15px black;
     margin: 1rem;
     display: grid;
     justify-content: center;
